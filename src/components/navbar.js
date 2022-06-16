@@ -7,11 +7,17 @@ export default function NavBar({ count }) {
     return (
         <Navbar bg="light" variant="light">
             <Container className="py-2">
-                <h3 className="fw-bold">Start Bootstrap</h3>
+                <Navbar.Brand href="#">
+                    <h3 className="fw-bold">Start Bootstrap</h3>
+                </Navbar.Brand>
                 <Nav className="mr-auto">
                 </Nav>
                 <Dropdown as={ButtonGroup}>
-                    <Button variant="outline-dark" size="lg"><BsCartFill style={{ fontSize: 25 }} /><b> Cart {count}</b></Button>
+                    <Button variant="outline-dark" size="lg">
+                        <b> Cart </b>
+                        <span class="badge badge-pill badge-dark">{count}</span>
+                        <BsCartFill style={{ fontSize: 25 }} />
+                    </Button>
                 </Dropdown>
             </Container>
         </Navbar>
