@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from './components/navbar';
+import Header from './components/header';
+import Cards from './components/cards';
+import Footer from './components/footer';
+import Data from './data/data';
+import { useState } from 'react';
 
 function App() {
+
+  const [count, setCount] = useState(0)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar count={count} />
+      <Header />
+      <section className="py-5">
+        <div className="container px-4 px-lg-5 mt-5">
+          <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            {Data.map((items) => (
+              <Cards key={items.id} name={items.name} price={items.price} count={count} setCount={setCount} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <Footer />
     </div>
   );
 }
